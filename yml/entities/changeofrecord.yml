@@ -1,0 +1,52 @@
+easy_admin:
+    entities:
+#        - SysBackenBundle\Entity\ChangeOf
+        ChangeOfRecord:
+            class: SysBackenBundle\Entity\ChangeOf
+            controller: SysBackenBundle\Controller\ChangeOfRecordController
+            disabled_actions: ['delete', 'new']
+            label: 'Change Of Record'
+            search:
+                placeholder: 'Aircraft'
+                fields:
+                  - {property: 'type', searchable: false, fieldType: string, dataType: string, type: string, expose: {type: 'entity_select', entity: 'SysBackenBundle\Entity\Nomencladores', label: 'Type', option: 'title', arguments: [{field: 'type.keyType', value: 'Type'}]}}
+#                  - {property: 'aircraft', searchable: false, fieldType: string, dataType: string, type: string, expose: {type: 'entity_select', entity: 'SysBackenBundle\Entity\Airecraft', label: 'Aircraft'}}, option: 'title', arguments: [{field: 'type.keyType', value: 'Airecraft'}]
+                  - {property: 'model', fieldType: string, dataType: string, type: string, expose: {name: 'model', type: 'text', label: 'Model'}}
+            list:
+                actions:
+                    - { name: 'edit', label: '', icon: 'edit' }
+                    - { name: 'export', label: 'Export' }
+
+                fields:
+                    - { property: 'type', format: 1 }
+                    - { property: 'aircraft', format: 1 }
+                    - { property: 'model', format: 1 }
+                    - { property: 'current', format: 1 }
+                    - { property: 'newSelect', format: 1, label: 'New' }
+                    - { property: 'inspector', format: 1 }
+                    - { property: 'assignedto', format: 1 }
+                    - { property: 'status', format: 1 }
+                    - { property: 'remarks', format: 1 }
+
+            edit:
+                fields:
+                    - { type: 'group', label: 'Task Type',css_class: 'col-sm-6' }
+                    - { property: 'type', css_class: 'col-md-6 col-xs-12' }
+                    - { type: 'group', label: 'Task Data',css_class: 'col-sm-12  new-row' }
+                    - { type: 'section', label: 'Aircraft', icon: 'e-mail', css_class: 'danger' }
+                    - { property: 'aircraft', css_class: 'col-md-6 col-xs-12', label: 'Aircraft' }
+                    - { property: 'model', css_class: 'col-md-6 col-xs-12', label: 'Model' }
+                    - { property: 'current', css_class: 'col-md-6 col-xs-12', label: 'Current', type: 'text', disabled: 'true' }
+                    - { property: 'new_mark', css_class: 'col-md-6 col-xs-12', label: '' }
+                    - { property: 'new', css_class: 'col-md-6 col-xs-12', label: 'New' }
+                    - { type: 'section', label: 'Personal', icon: 'e-mail', css_class: 'danger' }
+                    - { property: 'inspector', css_class: 'col-md-6 col-xs-12',  label: 'Inspector' }
+                    - { property: 'assignedto', css_class: 'col-md-6 col-xs-12', label: 'Assigned to' }
+                    - { type: 'section', label: 'Status and Remarks', icon: 'e-mail', css_class: 'danger' }
+  #                  - { type: 'group', label: 'Status', css_class: 'col-sm-3' }
+                    - { property: 'status', css_class: 'col-md-6 col-xs-6', label: 'Status' }
+  #                  - { type: 'group', label: 'Remarks', css_class: 'col-sm-3' }
+                    - { property: 'remarks', css_class: 'col-md-6 col-xs-6', label: 'Remarks' }
+
+
+

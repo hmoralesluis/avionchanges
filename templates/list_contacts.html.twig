@@ -1,0 +1,89 @@
+{% set lineid = 0 %}
+{% set contactid = 0 %}
+<div class="row">
+        <div class="col-md-12 hidden_fields_custom">
+            {% for val in value if val.main %}
+                {% set lineid = val.id %}
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseContacts_{{ lineid }}" aria-expanded="false" aria-controls="collapseExample">
+                    Contacts
+                </button>
+            {% endfor %}
+
+            <div class="collapse" id="collapseContacts_{{ lineid }}">
+                {% for val in value if val.list %}
+                    {% set contactid = val.id %}
+                    <div class="control-group">
+                        <div>
+                            <button class="btn" type="button" data-toggle="collapse" data-target="#collapseContactsAux_{{ contactid }}">
+                                +
+                            </button>
+                            <a href="{{ app.request.getBaseURL() }}/admin/?action=show&entity=Contact&id={{ val.id }}">{{ val.name }} {{ val.lastname }}</a>
+                            <div class="collapse" id="collapseContactsAux_{{ contactid }}">
+                                <div class="table">
+                                    {% if(val.group) %}
+                                    <div>
+                                        <b>Group: </b>{{ val.group }}
+                                    </div>
+                                    {% endif %}
+                                    {% if(val.title) %}
+                                    <div>
+                                        <b>Title: </b>{{ val.title }}
+                                    </div>
+                                    {% endif %}
+                                    {% if(val.email1) %}
+                                        <div>
+                                            <b>Email1: </b>{{ val.email1 }}
+                                        </div>
+                                    {% endif %}
+                                    {% if(val.email2) %}
+                                        <div>
+                                            <b>Email2: </b>{{ val.email2 }}
+                                        </div>
+                                    {% endif %}
+                                    {% if(val.email3) %}
+                                        <div>
+                                            <b>Email3: </b>{{ val.email3 }}
+                                        </div>
+                                    {% endif %}
+                                    {% if(val.telephone) %}
+                                    <div>
+                                        <b>Telephone: </b>{{ val.telephone }}
+                                    </div>
+                                    {% endif %}
+                                    {% if(val.mobile) %}
+                                    <div>
+                                        <b>Mobile: </b>{{ val.mobile }}
+                                    </div>
+                                    {% endif %}
+                                    {% if(val.fax) %}
+                                    <div>
+                                        <b>Fax: </b>{{ val.fax }}
+                                    </div>
+                                    {% endif %}
+                                    {% if(val.address1) %}
+                                    <div>
+                                        <b>Address: </b>{{ val.address1 }}
+                                    </div>
+                                    {% endif %}
+                                    {% if(val.address2) %}
+                                    <div>
+                                        <b>City, State, Zipcode: </b>{{ val.address2 }}
+                                    </div>
+                                    {% endif %}
+                                    {% if(val.country) %}
+                                    <div>
+                                        <b>Country: </b>{{ val.country }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+

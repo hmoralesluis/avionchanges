@@ -1,0 +1,91 @@
+easy_admin:
+    entities:
+#        - SysBackenBundle\Entity\Mro
+        Mro:
+            class: SysBackenBundle\Entity\Mro
+            controller: SysBackenBundle\Controller\MroController
+#            disabled_actions: ['show']
+            label: 'MRO Active'
+            search:
+                placeholder: 'Name'
+                fields:
+                  - {property: 'name', fieldType: string, dataType: string, type: string, expose: {name: 'name', type: 'text', label: 'Name'}}
+                  - {property: 'country', searchable: false, fieldType: string, dataType: string, type: string, expose: {type: 'entity_select', entity: 'SysBackenBundle\Entity\Country', label: 'Country'}}
+                  - {property: 'city', fieldType: string, dataType: string, type: string, expose: {name: 'city', type: 'text', label: 'City'}}
+                  - {property: 'certificatenumber', fieldType: string, dataType: string, type: string, expose: {name: 'certificate', type: 'text', label: 'Certificate #'}}
+                  - {property: 'isActive', searchable: false, fieldType: boolean, dataType: boolean, type: boolean, expose: {type: 'boolean_select', propertyDataType: 'boolean', label: 'Is Active'}}
+
+            list:
+                actions:
+                    - { name: 'edit', label: '', icon: 'edit' }
+                    - { name: 'delete', label: '', icon: 'trash' }
+                    - { name: 'sendmail', label: 'Send Email' }
+                fields:
+                    - { property: 'name', format: 1 }
+                    - isActive
+                    - { property: 'country', format: 1 }
+                    - { property: 'city', format: 1 }
+                    - { property: 'certificatenumber', format: 1 }
+                    - { property: 'issuedate', format: 'j / M / Y', label: 'Issued Date' }
+                    - { property: 'expirationdate', format: 'j / M / Y', label: 'Expiration Date' }
+                    - { property: 'status', format: 1 }
+                    - { property: 'ContactList', format: 1, template: 'AppBundle:template:list_contacts.html.twig' }
+
+            form:
+                fields:
+                  - { type: 'group', label: 'Maintenance Facility Form', icon: 'plane', css_class: 'col-sm-12'}
+                  - { property: 'name', css_class: 'col-md-4 col-xs-12', label: 'Name'}
+                  - { property: 'continent', css_class: 'col-md-4 col-xs-12', label: 'Continent'}
+                  - { property: 'country', css_class: 'col-md-4 col-xs-12', label: 'Country'}
+                  - { property: 'state', css_class: 'col-md-4 col-xs-12', label: 'State'}
+                  - { property: 'city', css_class: 'col-md-4 col-xs-12', label: 'city'}
+                  - { property: 'certificatenumber', css_class: 'col-md-4 col-xs-12', label: 'Certificate number'}
+                  - { property: 'remarks', css_class: 'col-md-4 col-xs-12', label: 'Remarks'}
+                  - { property: 'website', css_class: 'col-md-4 col-xs-12', label: 'Web Site', type: 'url' }
+                  - { property: 'isActive', css_class: 'col-md-3'}
+                  - { type: 'section', label: 'License', icon: 'phone', css_class: 'danger' }
+                  - { property: 'issuedate', label: 'Date of issue', css_class: 'col-md-6 col-xs-12', type_options: { widget: 'single_text', attr: {class: 'js-datepicker'}, format: 'yyyy-MM-dd' }}
+                  - { property: 'expirationdate', label: 'Expiration Date', css_class: 'col-md-6 col-xs-12', type_options: { widget: 'single_text', attr: {class: 'js-datepicker'}, format: 'yyyy-MM-dd' }}
+                  - { type: 'section', label: 'Documents', icon: 'phone', css_class: 'danger' }
+                  - { property: 'doctype', css_class: 'col-md-6 col-xs-12', label: 'Type' }
+                  - { property: 'docFile',  label: 'PDF File', type: 'Vich\UploaderBundle\Form\Type\VichFileType', css_class: 'col-md-6 col-xs-12'}
+#                  - { type: 'section', label: 'OFAC Compliance', icon: 'plane', css_class: 'danger'}
+                  - { property: 'ofactype', css_class: 'col-md-6 col-xs-12', label: 'Type' }
+                  - { property: 'ofacFile',  label: 'PDF File', type: 'Vich\UploaderBundle\Form\Type\VichFileType', css_class: 'col-md-6 col-xs-12'}
+                  - { type: 'group', label: 'Link to Aircraft', icon: 'plane', css_class: 'col-sm-6'}
+                  - { property: 'mro_airecraft', css_class: 'col-md-12 col-xs-12', label: 'Aircraft:' }
+                  - { type: 'group', label: 'Link to Contact', icon: 'plane', css_class: 'col-sm-6'}
+                  - { property: 'mro_contact', css_class: 'col-md-12 col-xs-12', label: 'Contacts:' }
+
+            edit:
+              fields:
+                - { type: 'group', label: 'Maintenance Facility Form', icon: 'plane', css_class: 'col-sm-12'}
+                - { property: 'name', css_class: 'col-md-4 col-xs-12', label: 'Name'}
+                - { property: 'continent', css_class: 'col-md-4 col-xs-12', label: 'Continent'}
+                - { property: 'country', css_class: 'col-md-4 col-xs-12', label: 'Country'}
+                - { property: 'state', css_class: 'col-md-4 col-xs-12', label: 'State'}
+                - { property: 'city', css_class: 'col-md-4 col-xs-12', label: 'city'}
+                - { property: 'certificatenumber', css_class: 'col-md-4 col-xs-12', label: 'Certificate number'}
+                - { property: 'remarks', css_class: 'col-md-4 col-xs-12', label: 'Remarks'}
+                - { property: 'website', css_class: 'col-md-4 col-xs-12', label: 'Web Site', type: 'url' }
+                - { property: 'isActive', css_class: 'col-md-3'}
+                - { type: 'section', label: 'License', icon: 'phone', css_class: 'danger' }
+                - { property: 'issuedate', label: 'Date of issue', css_class: 'col-md-6 col-xs-12', type_options: { widget: 'single_text', attr: {class: 'js-datepicker'}, format: 'yyyy-MM-dd' }}
+                - { property: 'expirationdate', label: 'Expiration Date', css_class: 'col-md-6 col-xs-12', type_options: { widget: 'single_text', attr: {class: 'js-datepicker'}, format: 'yyyy-MM-dd' }}
+                - { type: 'section', label: 'Documents', icon: 'phone', css_class: 'danger' }
+                - { property: 'doctype', css_class: 'col-md-6 col-xs-12', label: 'Type' }
+                - { property: 'docFile',  label: 'PDF File', type: 'Vich\UploaderBundle\Form\Type\VichFileType', css_class: 'col-md-6 col-xs-12'}
+#                  - { type: 'section', label: 'OFAC Compliance', icon: 'plane', css_class: 'danger'}
+                - { property: 'ofactype', css_class: 'col-md-6 col-xs-12', label: 'Type' }
+                - { property: 'ofacFile',  label: 'PDF File', type: 'Vich\UploaderBundle\Form\Type\VichFileType', css_class: 'col-md-6 col-xs-12'}
+                - { type: 'group', label: 'Link to Aircraft', icon: 'plane', css_class: 'col-sm-6'}
+                - { property: 'mro_airecraft', css_class: 'col-md-12 col-xs-12', label: 'Aircraft:' }
+                - { type: 'group', label: 'Link to Contact', icon: 'plane', css_class: 'col-sm-6'}
+                - { property: 'mro_contact', css_class: 'col-md-12 col-xs-12', label: 'Contacts:' }
+
+
+
+
+
+
+

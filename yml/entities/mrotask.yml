@@ -1,0 +1,55 @@
+easy_admin:
+    entities:
+#        - SysBackenBundle\Entity\MroTask
+        MroTask:
+            class: SysBackenBundle\Entity\MroTask
+            controller: SysBackenBundle\Controller\MroTaskController
+            disabled_actions: ['delete', 'show']
+            label: 'MRO'
+            search:
+                placeholder: 'Mro'
+                fields:
+                  - {property: 'type', searchable: false, fieldType: string, dataType: string, type: string, expose: {type: 'entity_select', entity: 'SysBackenBundle\Entity\Nomencladores', label: 'Type', option: 'title', arguments: [{field: 'type.keyType', value: 'Status'}]}}
+                  - {property: 'mro', searchable: false, fieldType: string, dataType: string, type: string, expose: {type: 'entity_select', entity: 'SysBackenBundle\Entity\Mro', label: 'Mro'}}
+                  - {property: 'location', fieldType: string, dataType: string, type: string, expose: {name: 'location', type: 'text', label: 'Location'}}
+            list:
+                actions:
+                    - { name: 'show', label: '', icon: 'search' }
+                    - { name: 'edit', label: '', icon: 'edit' }
+                    - { name: 'delete', label: '', icon: 'trash' }
+                    - { name: 'completed', label: 'Completed' }
+                fields:
+                    - { property: 'type', format: 1 }
+                    - { property: 'mro', format: 1 }
+                    - { property: 'location', format: 1 }
+                    - { property: 'startdate', format: 'j / M / Y', label: 'Star Date' }
+                    - { property: 'endingdate', format: 'j / M / Y', label: 'Ending Date' }
+                    - { property: 'inspector', format: 1 }
+                    - { property: 'assignedto', format: 1 }
+                    - { property: 'status', format: 1 }
+                    - { property: 'remark', format: 1 }
+
+            form:
+                fields:
+                  - { type: 'group', label: 'Task Type',css_class: 'col-sm-6' }
+                  - { property: 'type', css_class: 'col-md-6 col-xs-12' }
+                  - { type: 'group', label: 'Task Data',css_class: 'col-sm-12 col-md-12 new-row' }
+                  - { type: 'section', label: 'MRO', icon: 'e-mail', css_class: 'danger' }
+                  - { property: 'mro', css_class: 'col-md-6 col-xs-12', label: 'Name' }
+                  - { property: 'location', css_class: 'col-md-6 col-xs-12', label: 'Location' }
+                  - { type: 'section', label: 'Personal', icon: 'e-mail', css_class: 'danger' }
+                  - { property: 'inspector', css_class: 'col-md-6 col-xs-12',  label: 'Inspector' }
+                  - { property: 'assignedto', css_class: 'col-md-6 col-xs-12', label: 'IA SO' }
+                  - { type: 'section', label: 'Dates', icon: 'e-mail', css_class: 'danger' }
+                  - { property: 'expirationdate', label: 'Date of Expiration', css_class: 'col-md-4 col-xs-12', type_options: { widget: 'single_text', attr: {class: 'js-datepicker'}, format: 'yyyy-MM-dd' }}
+                  - { property: 'startdate', label: 'Star Date', css_class: 'col-md-4 col-xs-12', type_options: { widget: 'single_text', attr: {class: 'js-datepicker'}, format: 'yyyy-MM-dd' }}
+                  - { property: 'endingdate', label: 'Ending Date', css_class: 'col-md-4 col-xs-12', type_options: { widget: 'single_text', attr: {class: 'js-datepicker'}, format: 'yyyy-MM-dd' }}
+#                  - { type: 'group', label: 'Status', css_class: 'col-sm-6' }
+                  - { type: 'section', label: 'Status and Remark', icon: 'e-mail', css_class: 'danger' }
+                  - { property: 'status', css_class: 'col-md-6 col-xs-12', label: 'Status' }
+#                  - { type: 'group', label: 'Remarks', css_class: 'col-sm-6' }
+#                  - { type: 'section', label: 'Remarks', icon: 'e-mail', css_class: 'danger' }
+                  - { property: 'remark', css_class: 'col-md-6 col-xs-12', label: 'Remarks' }
+
+
+

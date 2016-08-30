@@ -1,0 +1,49 @@
+easy_admin:
+    entities:
+#        - SysBackenBundle\Entity\Audit
+        AuditRecord:
+            class: SysBackenBundle\Entity\Audit
+            controller: SysBackenBundle\Controller\AuditRecordController
+            disabled_actions: ['delete', 'new']
+            label: 'Audit Record'
+            search:
+                placeholder: 'Operator'
+                fields:
+                  - {property: 'operator', searchable: false, fieldType: string, dataType: string, type: string, expose: {type: 'entity_select', entity: 'SysBackenBundle\Entity\Operator', label: 'Operator'}}
+                  - {property: 'location', fieldType: string, dataType: string, type: string, expose: {name: 'location', type: 'text', label: 'Location'}}
+            list:
+                actions:
+                    - { name: 'edit', label: '', icon: 'edit' }
+
+
+                fields:
+                    - { property: 'operator', format: 1 }
+                    - { property: 'location', format: 1 }
+                    - { property: 'startdate', format: 'j / M / Y', label: 'Star Date' }
+                    - { property: 'endingdate', format: 'j / M / Y', label: 'Ending Date' }
+                    - { property: 'inspector', format: 1 }
+                    - { property: 'assignedto', format: 1 }
+                    - { property: 'status', format: 1 }
+                    - { property: 'remark', format: 1 }
+
+            edit:
+                fields:
+                  - { type: 'group', label: 'Task Type',css_class: 'col-sm-6' }
+                  - { property: 'type', css_class: 'col-md-6 col-xs-12' }
+                  - { type: 'group', label: 'Task Data',css_class: 'col-sm-6  new-row' }
+                  - { type: 'section', label: 'Operator', icon: 'e-mail', css_class: 'danger' }
+                  - { property: 'operator', css_class: 'col-md-6 col-xs-12', label: 'Name' }
+                  - { property: 'location', css_class: 'col-md-6 col-xs-12', label: 'Location' }
+                  - { type: 'section', label: 'Personal', icon: 'e-mail', css_class: 'danger' }
+                  - { property: 'inspector', css_class: 'col-md-6 col-xs-12',  label: 'Inspector' }
+                  - { property: 'assignedto', css_class: 'col-md-6 col-xs-12', label: 'IA SO' }
+                  - { type: 'section', label: 'Dates', icon: 'e-mail', css_class: 'danger' }
+                  - { property: 'startdate', label: 'Star Date', css_class: 'col-md-4 col-xs-12', type_options: { widget: 'single_text', attr: {class: 'js-datepicker'}, format: 'yyyy-MM-dd' }}
+                  - { property: 'endingdate', label: 'Ending Date', css_class: 'col-md-4 col-xs-12', type_options: { widget: 'single_text', attr: {class: 'js-datepicker'}, format: 'yyyy-MM-dd' }}
+                  - { type: 'group', label: 'Status', css_class: 'col-sm-3' }
+                  - { property: 'status', css_class: 'col-md-12 col-xs-12', label: 'Status' }
+                  - { type: 'group', label: 'Remarks', css_class: 'col-sm-3' }
+                  - { property: 'remark', css_class: 'col-md-12 col-xs-12', label: 'Remarks' }
+
+
+
