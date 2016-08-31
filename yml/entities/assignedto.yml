@@ -1,0 +1,18 @@
+easy_admin:
+    entities:
+        assignedto:
+            class: SysBackenBundle\Entity\AssignedTo
+            list:
+                actions:
+                    - { name: 'show', label: '', icon: 'search' }
+                    - { name: 'edit', label: '', icon: 'edit' }
+                    - { name: 'delete', label: '', icon: 'trash' }
+                fields:
+                    - acronym
+            show:
+                fields:
+                    - id
+                    - acronym
+            form:
+                fields:
+                    - { property: 'acronym'}
