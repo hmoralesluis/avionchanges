@@ -1,0 +1,33 @@
+easy_admin:
+    entities:
+#        - SysBackenBundle\Entity\Personal
+        Personal:
+            class: SysBackenBundle\Entity\Personal
+            controller: SysBackenBundle\Controller\PersonalController
+            label: 'Personal'
+            templates:
+                list: 'AppBundle:template:list.html.twig'
+            list:
+                actions:
+                    - { name: 'show', label: '', icon: 'search' }
+                    - { name: 'edit', label: '', icon: 'edit' }
+                    - { name: 'delete', label: '', icon: 'trash' }
+                fields:
+                    - { property: 'full_name', format: 1 }
+                    - { property: 'job_title', format: 1 }
+                    - { property: 'ocupation', format: 1 }
+                    - { property: 'category', format: 1 }
+                    - { property: 'continent', format: 1 }
+                    - { property: 'country', format: 1 }
+
+            form:
+                fields:
+                  - { type: 'group', label: 'Personal Ocupation',css_class: 'col-sm-6' }
+                  - { property: 'ocupation', css_class: 'col-md-6 col-xs-12' }
+                  - { type: 'group', label: 'Personal Data',css_class: 'col-sm-12  new-row' }
+                  - { type: 'section', label: 'Data', icon: 'e-mail', css_class: 'danger' }
+                  - { property: 'full_name', css_class: 'col-md-6 col-xs-12', label: 'Full Name' }
+                  - { property: 'job_title', css_class: 'col-md-6 col-xs-12', label: 'Job Title' }
+                  - { property: 'category', css_class: 'col-md-6 col-xs-12',  label: 'Category' }
+                  - { property: 'continent', css_class: 'col-md-6 col-xs-12', label: 'Continent' }
+                  - { property: 'country', css_class: 'col-md-6 col-xs-12', label: 'Country' }

@@ -1,0 +1,85 @@
+imports:
+    - { resource: "@AppBundle/Resources/config/easyadmin.yml" }
+    - { resource: "@SysBackenBundle/Resources/config/easyadmin.yml" }
+
+easy_admin:
+    site_name: 'SYS Backend'
+    list:
+        max_results: 5
+    design:
+      templates:
+          layout: '@App/easyadmin_custom_layout.html.twig'
+          menu: '@App/template/easyadmin_custom_menu.html.twig'
+          list: '@App/template/easyadmin_custom_list.html.twig'
+          show: '@App/template/easyadmin_custom_show.html.twig'
+          new: '@App/template/easyadmin_custom_new.html.twig'
+          edit: '@App/template/easyadmin_custom_edit.html.twig'
+      form_theme: 'vertical'
+      color_scheme: 'dark'
+      assets:
+          css:
+              # HTTP protocol-relative URL
+              - 'bundles/app/bootstrap-datepicker/css/bootstrap-datepicker.css'
+              - 'bundles/app/bootstrap-datepicker/css/bootstrap-datepicker3.css'
+              - 'bundles/app/css/main.css'
+              - 'bundles/sysbacken/css/main.css'
+          js:
+              # this option works exactly the same as the 'css' option
+              - 'bundles/app/bootstrap-datepicker/js/bootstrap-datepicker.js'
+              - 'bundles/app/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js'
+              - 'bundles/sysbacken/js/main.js'
+      menu:
+          - label: 'SEARCH'
+            icon: 'search'
+            children:
+              - { label: 'Airecraft', icon: 'plane', entity: 'airecraft' }
+              - { label: 'Add Crew', icon: 'users', entity: 'airecraft_crew' }
+              - { label: 'Crews', entity: 'Crew', icon: 'th-list' }
+              - { label: 'Crew Expiring in 60 Days', route: 'sys_backen_list_crews_60_days', icon: 'th-list', params: { entity: 'Crew' } }
+              - { label: 'Mechanic', entity: 'Mechanic', icon: 'th-list', params: { position: 'Mechanic' } }
+              - { label: 'Mechanic Expiring in 60 Days', route: 'sys_backen_list_mechanic_60_days', icon: 'th-list', params: { entity: 'Mechanic' } }
+              - { label: 'MRO Active', entity: 'Mro', icon: 'th-list' }
+          - label: 'PROJECTS'
+            icon: 'th'
+            children:
+                - { label: 'MRO', entity: 'MroTask', icon: 'th-list' }
+                - { label: 'MRO Record', entity: 'MroTaskRecord', icon: 'th-list' }
+                - { label: 'Audit', entity: 'Audit', icon: 'th-list' }
+                - { label: 'Audit Record', entity: 'AuditRecord', icon: 'th-list' }
+                - { label: 'Change Of', entity: 'ChangeOf', icon: 'th-list' }
+                - { label: 'Change Of Record', entity: 'ChangeOfRecord', icon: 'th-list' }
+          - label: 'LIST OF'
+            icon: 'list-alt'
+            children:
+              - { label: 'Owners', entity: 'Owner', icon: 'th-list' }
+              - { label: 'AVV company', entity: 'AVVcompany', icon: 'th-list' }
+              - { label: 'Operators', entity: 'Operator', icon: 'th-list' }
+          - label: 'WEBSITE'
+            icon: 'gears'
+            children:
+                - { label: 'News', entity: 'news', icon: 'th-list' }
+                - { label: 'Circulars', icon: 'th-list', entity: 'Circular' }
+                - { label: 'Form', entity: 'Form', icon: 'th-list' }
+                - { label: 'Guidelines', entity: 'Guide', icon: 'th-list' }
+                - { label: 'Registrations', entity: 'request', icon: 'th-list' }
+          - label: 'ADMIN'
+            icon: 'gear'
+            children:
+                - { label: 'Users', entity: 'user', icon: 'users' }
+                - { label: 'Roles', entity: 'role', icon: 'users' }
+                - { label: 'List Types', icon: 'th-list', entity: 'CircularType' }
+                - { label: 'Menu', entity: 'MenuCategories', icon: 'th-list' }
+                - { label: 'Pages', entity: 'Pages', icon: 'th-list' }
+                - { label: 'Inspector', entity: 'inspector', icon: 'th-list' }
+                - { label: 'Assigned To', entity: 'assignedto', icon: 'th-list' }
+                - { label: 'Countries', entity: 'Country', icon: 'th-list' }
+                - { label: 'Continents', entity: 'Continent', icon: 'th-list' }
+                - { label: 'States', entity: 'State', icon: 'th-list' }
+                - { label: 'Training', entity: 'Training', icon: 'th-list' }
+                - { label: 'Contact', entity: 'Contact', icon: 'th-list' }
+                - { label: 'Ratings', entity: 'Ratings', icon: 'th-list' }
+                - { label: 'ELP Level', entity: 'ELPLevel', icon: 'th-list' }
+                - { label: 'Email User', entity: 'MailUser', icon: 'th-list' }
+                - { label: 'Nomenclators', entity: 'nomenclator', icon: 'th-list' }
+                - { label: 'Nomenclators Types', entity: 'nomenclator_type', icon: 'th-list' }
+                - { label: 'Personal', entity: 'Personal', icon: 'th-list' }
