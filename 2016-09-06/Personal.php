@@ -33,33 +33,28 @@ class Personal
 
     /**
      * @ORM\ManyToOne(targetEntity="Nomencladores")
-     * @ORM\JoinColumn(name="ocupation", referencedColumnName="id")
+     * @ORM\JoinColumn(name="organization", referencedColumnName="id")
      */
-    protected $ocupation;
+    protected $organization;
 
     /**
      * @ORM\ManyToOne(targetEntity="Nomencladores")
-     * @ORM\JoinColumn(name="category", referencedColumnName="id")
+     * @ORM\JoinColumn(name="category", referencedColumnName="id", nullable=true)
      */
     protected $category;
 
     /**
      * @ORM\ManyToOne(targetEntity="Continent")
-     * @ORM\JoinColumn(name="continent", referencedColumnName="id")
+     * @ORM\JoinColumn(name="continent", referencedColumnName="id", nullable=true)
      */
     protected $continent;
 
 
     /**
      * @ORM\ManyToOne(targetEntity="Country")
-     * @ORM\JoinColumn(name="country", referencedColumnName="id")
+     * @ORM\JoinColumn(name="country", referencedColumnName="id", nullable=true)
      */
     protected $country;
-
-
-
-
-
 
     /**
      * Get id
@@ -118,26 +113,26 @@ class Personal
     }
 
     /**
-     * Set ocupation
+     * Set organization
      *
-     * @param \SysBackenBundle\Entity\Nomencladores $ocupation
+     * @param \SysBackenBundle\Entity\Nomencladores $organization
      * @return Personal
      */
-    public function setOcupation(\SysBackenBundle\Entity\Nomencladores $ocupation = null)
+    public function setOrganization(\SysBackenBundle\Entity\Nomencladores $organization = null)
     {
-        $this->ocupation = $ocupation;
+        $this->organization = $organization;
 
         return $this;
     }
 
     /**
-     * Get ocupation
+     * Get organization
      *
      * @return \SysBackenBundle\Entity\Nomencladores 
      */
-    public function getOcupation()
+    public function getOrganization()
     {
-        return $this->ocupation;
+        return $this->organization;
     }
 
     /**

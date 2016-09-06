@@ -15,15 +15,15 @@ easy_admin:
                 fields:
                     - { property: 'full_name', format: 1 }
                     - { property: 'job_title', format: 1 }
-                    - { property: 'ocupation', format: 1 }
+                    - { property: 'organization', format: 1 }
                     - { property: 'category', format: 1 }
                     - { property: 'continent', format: 1 }
                     - { property: 'country', format: 1 }
 
             form:
                 fields:
-                  - { type: 'group', label: 'Personal Ocupation',css_class: 'col-sm-6' }
-                  - { property: 'ocupation', css_class: 'col-md-6 col-xs-12' }
+                  - { type: 'group', label: 'Organization',css_class: 'col-sm-6' }
+                  - { property: 'organization', css_class: 'col-md-6 col-xs-12' }
                   - { type: 'group', label: 'Personal Data',css_class: 'col-sm-12  new-row' }
                   - { type: 'section', label: 'Data', icon: 'e-mail', css_class: 'danger' }
                   - { property: 'full_name', css_class: 'col-md-6 col-xs-12', label: 'Full Name' }
