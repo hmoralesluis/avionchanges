@@ -1,0 +1,14 @@
+easy_admin:
+    entities:
+#        - SysBackenBundle\Entity\MenuCategories
+        MenuCategories:
+            class: SysBackenBundle\Entity\MenuCategories
+            label: 'Menu Categories'
+            list:
+                actions:
+                    - { name: 'show', label: '', icon: 'search' }
+                    - { name: 'edit', label: '', icon: 'edit' }
+                    - { name: 'delete', label: '', icon: 'trash' }
+                fields:
+                    - name
+                    - parent
